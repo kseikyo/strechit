@@ -1,14 +1,6 @@
 import { extendTheme } from "@chakra-ui/react";
 import { createBreakpoints } from "@chakra-ui/theme-tools";
 
-import Webfont from "webfontloader";
-
-Webfont.load({
-  google: {
-    families: ["Inter: 400, 500, 600", "Rajdhani: 600"],
-  },
-});
-
 // Add custom breakpoints
 const breakpoints = createBreakpoints({
   sm: "30em", // 480px
@@ -28,15 +20,15 @@ const fonts = {
 const brand = {
   white: "#fff",
   background: "#f2f3f5",
-  "gray-line": "#dcdde0",
+  grayLine: "#dcdde0",
   text: "#666666",
-  "text-highlight": "#b3b9ff",
+  textHighlight: "#b3b9ff",
   title: "#2e384d",
   red: "#e83f5b",
   green: "#4cd62b",
   blue: "#5965e0",
-  "blue-dark": "#4953b8",
-  "blue-twitter": "#2aa9e0",
+  blueDark: "#4953b8",
+  bluetwitter: "#2aa9e0",
 };
 
 // Appending colors, fonts and default global styles to the new theme
