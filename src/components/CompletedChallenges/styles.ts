@@ -2,8 +2,8 @@ import { FlexProps, TextProps } from "@chakra-ui/react";
 
 const styles = {
   container: {
-    align: "center",
-    justify: "space-between",
+    alignItems: "center",
+    justifyContent: "space-between",
     my: 14,
     mx: 0,
     pb: 4,
@@ -12,11 +12,9 @@ const styles = {
   } as FlexProps,
   firstText: {
     fontSize: "xl",
-    as: "span",
   } as TextProps,
   secondText: {
     fontSize: "2xl",
-    as: "span",
   } as TextProps,
 };
 

@@ -1,75 +1,84 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
-import React, { CSSProperties, useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import {
+  SmallCloseIcon,
+  CheckCircleIcon,
+  ChevronRightIcon,
+} from "@chakra-ui/icons";
 
 import styles from "./styles";
+import { CountdownContext } from "../../contexts/CountdownContext";
 
 interface CountdownProps {}
 
 export const Countdown: React.FC<CountdownProps> = ({}) => {
-  const [time, setTime] = useState(25 * 60);
-  const [active, setActive] = useState(false);
-  const [completed, setCompleted] = useState(false);
-
-  const minutes = Math.floor(time / 60);
-  const seconds = time % 60;
+  const {
+    minutes,
+    seconds,
+    isActive,
+    hasFinished,
+    resetCountdown,
+    startCountdown,
+  } = useContext(CountdownContext);
 
   const [minuteLeft, minuteRight] = String(minutes).padStart(2, "0").split("");
   const [secondLeft, secondRight] = String(seconds).padStart(2, "0").split("");
 
-  function startCountdown() {
-    setActive(true);
-  }
-
-  function resetCountdown() {
-    setActive(false);
-  }
-
-  useEffect(() => {
-    if (active && time > 0) {
-      setTimeout(() => {
-        setTime(time - 1);
-      }, 1000);
-      return;
-    }
-    if (time > 0) {
-      setTime(25 * 60);
-      return;
-    }
-    if (time === 0) {
-      setActive(false);
-      setCompleted(true);
-    }
-  }, [active, time]);
-
   return (
     <>
-      <Flex {...styles.container}>
-        <Flex {...styles.timerContainer}>
-          <Text {...styles.spanTimer} borderRight="1px solid #f0f1f3">
+      <Flex sx={{ ...styles.container }}>
+        <Flex sx={{ ...styles.timerContainer }}>
+          <Text
+            sx={{ ...styles.spanTimer }}
+            as="span"
+            borderRight="1px solid #f0f1f3"
+          >
             {minuteLeft}
           </Text>
-          <Text {...styles.spanTimer}>{minuteRight}</Text>
+          <Text sx={{ ...styles.spanTimer }} as="span">
+            {minuteRight}
+          </Text>
         </Flex>
-        <Box {...styles.separator}>:</Box>
-        <Flex {...styles.timerContainer}>
-          <Text {...styles.spanTimer}>{secondLeft}</Text>
-          <Text {...styles.spanTimer} borderLeft="1px solid #f0f1f3">
+        <Box sx={{ ...styles.separator }}>:</Box>
+        <Flex sx={{ ...styles.timerContainer }}>
+          <Text sx={{ ...styles.spanTimer }} as="span">
+            {secondLeft}
+          </Text>
+          <Text
+            sx={{ ...styles.spanTimer }}
+            as="span"
+            borderLeft="1px solid #f0f1f3"
+          >
             {secondRight}
           </Text>
         </Flex>
       </Flex>
-      {!active && !completed && (
-        <Button onClick={startCountdown} {...styles.button}>
-          Iniciar um ciclo
+      {!isActive && !hasFinished && (
+        <Button
+          rightIcon={<ChevronRightIcon w={6} h={6} />}
+          onClick={startCountdown}
+          sx={{ ...styles.button }}
+        >
+          Start a new cicle
         </Button>
       )}
-      {active && (
-        <Button onClick={resetCountdown} {...styles.buttonActive}>
-          Abandonar ciclo
+      {isActive && (
+        <Button
+          rightIcon={<SmallCloseIcon w={6} h={6} />}
+          onClick={resetCountdown}
+          sx={{ ...styles.buttonActive }}
+        >
+          Cancel cicle
         </Button>
       )}
-      {completed && (
-        <Button {...styles.buttonCompleted}>Ciclo encerrado</Button>
+      {hasFinished && (
+        <Button
+          rightIcon={<CheckCircleIcon color="brand.green" w={5} h={5} />}
+          disabled
+          sx={{ ...styles.buttonCompleted }}
+        >
+          Cicle finished
+        </Button>
       )}
     </>
   );

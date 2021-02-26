@@ -19,7 +19,6 @@ const styles = {
     fontSize: "2xl",
     fontWeight: "semibold",
     color: "brand.title",
-    as: "strong",
   } as TextProps,
   levelText: {
     d: "flex",

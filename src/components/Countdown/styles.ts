@@ -17,15 +17,15 @@ const button = {
 
 const styles = {
   container: {
-    align: "center",
+    alignItems: "center",
     fontFamily: "Rajdhani",
     fontWeight: "semibold",
     color: "brand.title",
   } as FlexProps,
   timerContainer: {
     flex: "1",
-    align: "center",
-    justify: "space-evenly",
+    alignItems: "center",
+    justifyContent: "space-evenly",
     bg: "white",
     boxShadow: "0 0 60px rgba(0, 0, 0, 0.05)",
     borderRadius: "5px",
@@ -34,7 +34,6 @@ const styles = {
   } as FlexProps,
   spanTimer: {
     flex: "1",
-    as: "span",
   } as TextProps,
   separator: {
     fontSize: "6.25rem",
@@ -46,12 +45,13 @@ const styles = {
     bg: "white",
     _hover: { bg: "brand.red", color: "white" },
     _active: { bg: "brand.red", opacity: 0.9 },
-    color: "brand.text",
+    color: "brand.title",
   } as ButtonProps,
   buttonCompleted: {
     ...button,
     bg: "white",
     _hover: { bg: "white" },
+    _active: {},
     color: "brand.text",
     borderBottom: `4px solid ${theme.colors.brand.green}`,
   } as ButtonProps,

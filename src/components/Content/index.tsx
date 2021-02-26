@@ -1,6 +1,7 @@
 import { Box, Button, Grid } from "@chakra-ui/react";
 import React from "react";
-import { CardContent } from "../CardContent";
+import { CountdownProvider } from "../../contexts/CountdownContext";
+import { ChallengeBox } from "../ChallengeBox";
 import { CompletedChallenges } from "../CompletedChallenges";
 import { Countdown } from "../Countdown";
 import { Profile } from "../Profile";
@@ -11,15 +12,17 @@ interface ContentProps {}
 
 export const Content: React.FC<ContentProps> = ({}) => {
   return (
-    <Grid {...styles.grid}>
-      <Box>
-        <Profile />
-        <CompletedChallenges />
-        <Countdown />
-      </Box>
-      <Box>
-        <CardContent />
-      </Box>
+    <Grid as="section" sx={{ ...styles.grid }}>
+      <CountdownProvider>
+        <Box>
+          <Profile />
+          <CompletedChallenges />
+          <Countdown />
+        </Box>
+        <Box>
+          <ChallengeBox />
+        </Box>
+      </CountdownProvider>
     </Grid>
   );
 };

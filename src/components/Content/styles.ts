@@ -2,11 +2,12 @@ import { ButtonProps, GridProps } from "@chakra-ui/react";
 
 const styles = {
   grid: {
-    as: "section",
     flex: "1",
-    gridTemplateColumns: "1fr 1fr",
+    gridTemplateColumns: [null, "1fr 1fr", "1fr 1fr"],
+    gridTemplateRows: ["1fr 1fr .2fr", "auto", null, null],
+    mt: ["3rem", "3rem", "0"],
     gap: "6.25rem",
-    alignContent: "center",
+    alignContent: ["center"],
   } as GridProps,
 };
 

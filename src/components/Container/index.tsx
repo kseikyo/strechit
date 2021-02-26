@@ -5,11 +5,5 @@ import styles from "./styles";
 interface ContainerProps {}
 
 export const Container: React.FC<ContainerProps> = ({ children }) => {
-  return (
-    <Flex
-      {...styles.container}
-    >
-      {children}
-    </Flex>
-  );
+  return <Flex sx={{ ...styles.container }}>{children}</Flex>;
 };
