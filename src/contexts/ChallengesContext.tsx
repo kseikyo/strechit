@@ -79,7 +79,7 @@ export function ChallengesProvider({
 
     setActiveChallenge(challenge);
 
-    if (Notification.permission === "granted") {
+    if ("Notification" in window && Notification.permission === "granted") {
       new Audio("/notification.mp3").play();
 
       new Notification("New challenge 🎉", {
