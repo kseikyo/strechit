@@ -37,14 +37,12 @@ export function ChallengesProvider({
 }: ChallengesProviderProps) {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
-  // ?? is from ES2020
-  // ?? operator returns the right operand if the left operand is null or undefined
-  const [level, setLevel] = useState(rest.level ?? 0);
+  const [level, setLevel] = useState(rest.level);
   const [currentExperience, setCurrentExperience] = useState(
-    rest.currentExperience ?? 0
+    rest.currentExperience
   );
   const [challengesCompleted, setChallengesCompleted] = useState(
-    rest.challengesCompleted ?? 0
+    rest.challengesCompleted
   );
 
   // Whenever there is a need to reset the challenge, use this.
