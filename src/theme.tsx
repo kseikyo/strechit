@@ -7,7 +7,7 @@ const breakpoints = createBreakpoints({
   md: "45em", // 720px
   lg: "67.5em", // 1080px
   xl: "80em", // 1280px
-  "2xl": "96em", // 1536px
+  "2xl": "80em", // 1280px
 });
 
 // Add custom fonts to theme
@@ -42,7 +42,7 @@ export const theme = extendTheme({
     global: {
       html: {
         // Adding responsive font-sizing on whole app depending on breakpoint
-        fontSize: { sm: "81.25%", md: "87.5%", lg: "93.75%" },
+	fontSize: {base: "75%", sm: "81.25%", md: "87.5%", lg: "93.75%" },
       },
       body: {
         bg: "brand.background",
