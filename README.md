@@ -24,7 +24,7 @@ yarn dev
 
 👤 **Lucas Sierota**
 
-* Website: https://lucassierota.netlify.app/
+* Website: https://lucassierota.dev/
 * Github: [@kseikyo](https://github.com/kseikyo)
 * LinkedIn: [@lucassierota](https://linkedin.com/in/lucassierota)
 
